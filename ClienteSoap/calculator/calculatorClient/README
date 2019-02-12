@@ -1,0 +1,5 @@
+Las fuentes del cliente pueden generarse o bien por linea de comando con 'wsimport' o bien con el plugin
+en el pom.
+
+Una vez generadas las fuentes buscar la clase anotada como @WebServiceClient, obtener una instancia, obtener el puerto
+para acceder al metodo que se quiera utililizar y hacer la llamada.

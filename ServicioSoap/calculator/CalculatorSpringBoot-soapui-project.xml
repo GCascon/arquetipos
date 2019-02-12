@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e3433620-0a18-4195-8850-e6637bd0eb0b" activeEnvironment="Default" name="CalculatorSpringBoot" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="84c2455a-1e11-4755-a1e7-e109511265a6" wsaVersion="NONE" name="CalculatorSoapBinding" type="wsdl" bindingName="{http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/}CalculatorSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/gcascon/ws/calculator.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/gcascon/ws/calculator.wsdl"><con:part><con:url>http://localhost:8080/gcascon/ws/calculator.wsdl</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements. See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership. The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License. You may obtain a copy of the License at
+ 
+  http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations
+  under the License.-->
+<wsdl:definitions name="Calculator" targetNamespace="http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/">
+      <xsd:element name="AddException" type="tns:AddException"/>
+      <xsd:complexType name="AddException">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="add" type="tns:add"/>
+      <xsd:complexType name="add">
+        <xsd:sequence>
+          <xsd:element name="a" type="xsd:int"/>
+          <xsd:element name="b" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="addResponse" type="tns:addResponse"/>
+      <xsd:complexType name="addResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="add">
+    <wsdl:part name="parameters" element="tns:add"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResponse">
+    <wsdl:part name="parameters" element="tns:addResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddException">
+    <wsdl:part name="AddException" element="tns:AddException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CalculatorPortType">
+    <wsdl:operation name="add">
+      <wsdl:input name="add" message="tns:add"></wsdl:input>
+      <wsdl:output name="addResponse" message="tns:addResponse"></wsdl:output>
+      <wsdl:fault name="AddException" message="tns:AddException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculatorSoapBinding" type="tns:CalculatorPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="add">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AddException">
+        <soap:fault name="AddException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Calculator">
+    <wsdl:port name="CalculatorPort" binding="tns:CalculatorSoapBinding">
+      <soap:address location="http://localhost:9090/CalculatorPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9090/CalculatorPort</con:endpoint></con:endpoints><con:operation id="d7218c59-ae19-4bf5-a8a6-a80760126d29" isOneWay="false" action="" name="add" bindingOperationName="add" type="Request-Response" outputName="addResponse" inputName="add" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="014be367-996a-411c-b18c-2dd6c1254b48" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/gcascon/ws/calculator</con:endpoint><con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:doc="http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <doc:addRequest>\r
+         <doc:a>3</doc:a>\r
+         <doc:b>5</doc:b>\r
+      </doc:addRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docwrapped.classnoanno.fortest.tools.cxf.apache.org/CalculatorPortType/add"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

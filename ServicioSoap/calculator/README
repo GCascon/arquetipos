@@ -1,0 +1,16 @@
+1.- Configurar plugin <maven-jaxb2-plugin> en el pom dandole la ruta del wsdl y con el comando "mvn generate-sources" 
+generar las clases para peticion y respuesta SOAP
+
+IMPORTANTE: Comprobar que los tipos se han generado con la anotacion @XmlRootElement sino habra que añadirlo porque dará error 
+al hacer la llamada al ws.
+
+2.- Completar WebserviceConfig con el nombre del wsdl y la ruta en la que queramos servir la aplicacion "gcascon/ws/calculator"
+
+3.- En el Webservice config, se debera indicar el tipo asociado a la peticion y respuesta del metodo que queramos implementar.
+@PayloadRoot Tipo de la peticion y namespace en el wsdl
+@ResponsePayload Tipo generado asociado a la respuesta
+@RequestPayload Tipo generado asociado a la peticion
+
+ver también:
+https://github.com/GCascon/spring-ws/tree/master/spring-ws-hello-world
+
