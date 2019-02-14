@@ -2,6 +2,8 @@ package com.jacktutorial.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +23,8 @@ public class ArticleController {
 	ArticleService articleService;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list() {
+	public ModelAndView list(HttpSession session) {
+		System.out.println("Loged user::"+session.getAttribute("logedUser"));
 		ModelAndView model = new ModelAndView("article_list");
 		List<Article> articleList = articleService.getAllArticles();
 		model.addObject("articleList", articleList);
